@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\davis\\source\\repos\\e-commerce-store\\e-commerce-store-service-host\\e-commerce-store-service-host.Server\\e-commerce-store-service-host.Server.csproj": {}
+    "C:\\Users\\davis\\Programming\\CSCE-361\\e-commerce-store-service-host\\e-commerce-store-service-host.Server\\e-commerce-store-service-host.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\davis\\source\\repos\\e-commerce-store\\e-commerce-store-service-host\\e-commerce-store-service-host.Server\\e-commerce-store-service-host.Server.csproj": {
+    "C:\\Users\\davis\\Programming\\CSCE-361\\e-commerce-store-service-host\\e-commerce-store-service-host.Server\\e-commerce-store-service-host.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\davis\\source\\repos\\e-commerce-store\\e-commerce-store-service-host\\e-commerce-store-service-host.Server\\e-commerce-store-service-host.Server.csproj",
+        "projectUniqueName": "C:\\Users\\davis\\Programming\\CSCE-361\\e-commerce-store-service-host\\e-commerce-store-service-host.Server\\e-commerce-store-service-host.Server.csproj",
         "projectName": "e-commerce-store-service-host.Server",
-        "projectPath": "C:\\Users\\davis\\source\\repos\\e-commerce-store\\e-commerce-store-service-host\\e-commerce-store-service-host.Server\\e-commerce-store-service-host.Server.csproj",
+        "projectPath": "C:\\Users\\davis\\Programming\\CSCE-361\\e-commerce-store-service-host\\e-commerce-store-service-host.Server\\e-commerce-store-service-host.Server.csproj",
         "packagesPath": "C:\\Users\\davis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\davis\\source\\repos\\e-commerce-store\\e-commerce-store-service-host\\e-commerce-store-service-host.Server\\obj\\",
+        "outputPath": "C:\\Users\\davis\\Programming\\CSCE-361\\e-commerce-store-service-host\\e-commerce-store-service-host.Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -74,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

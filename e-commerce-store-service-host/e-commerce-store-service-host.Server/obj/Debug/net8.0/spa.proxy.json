@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:50707",
 "RedirectUrl": "",
 "LaunchCommand": "npm run dev",
-"WorkingDirectory": "C:\\Users\\davis\\source\\repos\\e-commerce-store\\e-commerce-store-service-host\\e-commerce-store-service-host.Server\\..\\e-commerce-store-service-host.client",
+"WorkingDirectory": "C:\\Users\\davis\\Programming\\CSCE-361\\e-commerce-store-service-host\\e-commerce-store-service-host.Server\\..\\e-commerce-store-service-host.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }
