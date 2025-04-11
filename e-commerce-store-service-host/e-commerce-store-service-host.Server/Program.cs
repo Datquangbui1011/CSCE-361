@@ -1,13 +1,18 @@
 namespace e_commerce_store_service_host.Server
 {
+    using Microsoft.EntityFrameworkCore;
+    using Models.Data;
     public class Program
     {
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // Connect to the database
+            var connectionString = "Server=localhost,1433;Database=csce361;User Id=sa;Password=Placeh0lder!Passw0rd;TrustServerCertificate=True;";
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
+            // Add services to the container.
             builder.Services.AddControllers();
 
             var app = builder.Build();
