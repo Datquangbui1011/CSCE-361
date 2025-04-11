@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/khoatran0727/361_Code/CSCE-361/e-commerce-store-service-host/e-commerce-store-service-host.Server/e-commerce-store-service-host.Server.csproj": {}
+    "/Users/ned/Desktop/Classes/361/CSCE-361/e-commerce-store-service-host/e-commerce-store-service-host.Server/e-commerce-store-service-host.Server.csproj": {}
   },
   "projects": {
-    "/Users/khoatran0727/361_Code/CSCE-361/e-commerce-store-service-host/e-commerce-store-service-host.Server/e-commerce-store-service-host.Server.csproj": {
+    "/Users/ned/Desktop/Classes/361/CSCE-361/e-commerce-store-service-host/e-commerce-store-service-host.Server/e-commerce-store-service-host.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/khoatran0727/361_Code/CSCE-361/e-commerce-store-service-host/e-commerce-store-service-host.Server/e-commerce-store-service-host.Server.csproj",
+        "projectUniqueName": "/Users/ned/Desktop/Classes/361/CSCE-361/e-commerce-store-service-host/e-commerce-store-service-host.Server/e-commerce-store-service-host.Server.csproj",
         "projectName": "e-commerce-store-service-host.Server",
-        "projectPath": "/Users/khoatran0727/361_Code/CSCE-361/e-commerce-store-service-host/e-commerce-store-service-host.Server/e-commerce-store-service-host.Server.csproj",
-        "packagesPath": "/Users/khoatran0727/.nuget/packages/",
-        "outputPath": "/Users/khoatran0727/361_Code/CSCE-361/e-commerce-store-service-host/e-commerce-store-service-host.Server/obj/",
+        "projectPath": "/Users/ned/Desktop/Classes/361/CSCE-361/e-commerce-store-service-host/e-commerce-store-service-host.Server/e-commerce-store-service-host.Server.csproj",
+        "packagesPath": "/Users/ned/.nuget/packages/",
+        "outputPath": "/Users/ned/Desktop/Classes/361/CSCE-361/e-commerce-store-service-host/e-commerce-store-service-host.Server/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/khoatran0727/.nuget/NuGet/NuGet.Config"
+          "/Users/ned/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -61,6 +61,12 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.4, )"
             }
           },
           "imports": [
@@ -77,15 +83,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.12, 8.0.12]"
+              "version": "[8.0.14, 8.0.14]"
             },
             {
-              "name": "Microsoft.NETCore.App.Host.osx-x64",
-              "version": "[8.0.12, 8.0.12]"
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[8.0.14, 8.0.14]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.12, 8.0.12]"
+              "version": "[8.0.14, 8.0.14]"
             }
           ],
           "frameworkReferences": {
@@ -96,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
