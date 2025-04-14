@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Link } from "react-router-dom"
 import { useState } from "react"
+import { ModeToggle } from "@/components/mode-toggle"
 
 const sampleProducts = [
     { id: 1, name: "Wireless Headphones", price: "$59.99" },
@@ -20,9 +21,17 @@ export default function Home() {
         <div className="min-h-screen bg-background text-foreground">
             {/* Navbar */}
             <header className="flex items-center justify-between px-6 py-4 shadow-md">
+           
+                <div className="flex gap-4">
+
+                
                 <Link to="/" className="text-xl font-bold">
                     eCommerceStore
                 </Link>
+                <ModeToggle/>
+                </div>
+                
+
                 <div className="flex items-center gap-4">
                     <Link to="/login">
                         <Button variant="outline">Sign In</Button>

@@ -5,11 +5,13 @@ import Register from "./pages/Register"
 import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
 import OrderConfirmation from "./pages/OrderConfirmation"
+import { ThemeProvider } from "./components/theme-provider"
 
 
 
 function App() {
     return (
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -20,6 +22,7 @@ function App() {
                 <Route path="/confirmation" element={<OrderConfirmation />} />
             </Routes>
         </Router>
+        </ThemeProvider>
     )
 }
 
