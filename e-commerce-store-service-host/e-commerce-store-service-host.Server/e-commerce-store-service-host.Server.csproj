@@ -34,7 +34,6 @@
 
   <ItemGroup>
     <Folder Include="Contract\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Model\Data\" />
   </ItemGroup>
 
