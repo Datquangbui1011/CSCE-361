@@ -6,6 +6,7 @@ import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
 import OrderConfirmation from "./pages/OrderConfirmation"
 import { ThemeProvider } from "./components/theme-provider"
+import CategoryPage from "./pages/CategoryPage"
 
 
 
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/confirmation" element={<OrderConfirmation />} />
+                <Route path="/category/:category" element={<CategoryPage />} />
             </Routes>
         </Router>
         </ThemeProvider>
