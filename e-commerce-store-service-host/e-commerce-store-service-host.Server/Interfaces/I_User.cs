@@ -1,3 +1,5 @@
+using e_commerce_store_service_host.Server.Model.Entities;
+
 namespace e_commerce_store_service_host.Server.Respository;
 
 public interface I_User

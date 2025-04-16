@@ -1,8 +1,25 @@
+using e_commerce_store_service_host.Server.Model;
 using e_commerce_store_service_host.Server.Model.Entities;
 using e_commerce_store_service_host.Server.Respository;
-using Models.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace e_commerce_store_service_host.Server.Repositories;
+
+interface ICategoryRepository
+{
+    // Task<IEnumerable<Category>> GetAsync();
+    // Task<IEnumerable<Category>> GetAllAsync();
+    // Task<IEnumerable<Category>> GetByIdAsync(Guid id);
+    // Task<IEnumerable<Category>> AddAsync(Product product);
+    // Task<IEnumerable<Category>> Delete();
+    // Task<IEnumerable<Category>> SaveAsync(Product product);
+    Task<IEnumerable<Category>> GetAllAsync();
+    Task<Category> GetByIdAsync(Guid id);
+    Task AddAsync(Category category);
+    void Delete(Category category);
+    Task SaveAsync();
+    
+}
 
 public class CategoryRepository : ICategoryRepository
 {
@@ -18,9 +35,9 @@ public class CategoryRepository : ICategoryRepository
         return await _context.Categories.ToListAsync();
     }
 
-    public async Task<Category> GetByIdAsync(int id)
+    public async Task<Category> GetByIdAsync(Guid id)
     {
-        return await _context.Catogries.FindAsync(id);
+        return await _context.Categories.FindAsync(id);
     }
 
     public async Task AddAsync(Category category)

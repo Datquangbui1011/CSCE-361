@@ -1,7 +1,9 @@
+using e_commerce_store_service_host.Server.Model;
+
 namespace e_commerce_store_service_host.Server
 {
     using Microsoft.EntityFrameworkCore;
-    using Models.Data;
+
     public class Program
     {
         public static void Main(string[] args)
