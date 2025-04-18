@@ -1,9 +1,19 @@
 using e_commerce_store_service_host.Server.Model;
 using e_commerce_store_service_host.Server.Model.Entities;
-using e_commerce_store_service_host.Server.Respository;
+//using e_commerce_store_service_host.Server.Respository;
 using Microsoft.EntityFrameworkCore;
 
 namespace e_commerce_store_service_host.Server.Accessors;
+
+public interface ICategoryAccessor
+{
+    // Basic CRUD-like actions
+    Task<IEnumerable<Category>> GetAllAsync();
+    Task<Category> GetByIdAsync(Guid id);
+    Task AddAsync(Category category);
+    void Delete(Category category);
+    Task SaveAsync();
+}
 
 public class CategoryAccessor : ICategoryAccessor
 {

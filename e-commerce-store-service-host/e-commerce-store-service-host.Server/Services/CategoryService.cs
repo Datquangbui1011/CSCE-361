@@ -1,15 +1,14 @@
 using e_commerce_store_service_host.Server.Model.Entities;
-using e_commerce_store_service_host.Server.Respository;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using e_commerce_store_service_host.Server.Interfaces;
+using e_commerce_store_service_host.Server.Accessors;
 
 namespace e_commerce_store_service_host.Server.Services;
 public class CategoryService
 {
-    private readonly ICategoryRepository _categoryRepository;
+    private readonly CategoryAccessor _categoryRepository;
 
-    public CategoryService(ICategoryRepository categoryRepository)
+    public CategoryService(CategoryAccessor categoryRepository)
     {
         _categoryRepository = categoryRepository;
     }
@@ -19,7 +18,7 @@ public class CategoryService
         return await _categoryRepository.GetAllAsync();
     }
 
-    public async Task<Category> GetCategoryByIdAsync(int id)
+    public async Task<Category> GetCategoryByIdAsync(Guid id)
     {
         var category = await _categoryRepository.GetByIdAsync(id);
         return category;
@@ -31,7 +30,7 @@ public class CategoryService
         await _categoryRepository.SaveAsync();
     }
 
-    public async Task DeleteCategoryAsync(int id)
+    public async Task DeleteCategoryAsync(Guid id)
     {
         var category = await _categoryRepository.GetByIdAsync(id);
         if (category != null)
