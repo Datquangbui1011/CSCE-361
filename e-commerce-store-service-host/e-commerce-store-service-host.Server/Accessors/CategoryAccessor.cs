@@ -3,29 +3,13 @@ using e_commerce_store_service_host.Server.Model.Entities;
 using e_commerce_store_service_host.Server.Respository;
 using Microsoft.EntityFrameworkCore;
 
-namespace e_commerce_store_service_host.Server.Repositories;
+namespace e_commerce_store_service_host.Server.Accessors;
 
-interface ICategoryRepository
-{
-    // Task<IEnumerable<Category>> GetAsync();
-    // Task<IEnumerable<Category>> GetAllAsync();
-    // Task<IEnumerable<Category>> GetByIdAsync(Guid id);
-    // Task<IEnumerable<Category>> AddAsync(Product product);
-    // Task<IEnumerable<Category>> Delete();
-    // Task<IEnumerable<Category>> SaveAsync(Product product);
-    Task<IEnumerable<Category>> GetAllAsync();
-    Task<Category> GetByIdAsync(Guid id);
-    Task AddAsync(Category category);
-    void Delete(Category category);
-    Task SaveAsync();
-    
-}
-
-public class CategoryRepository : ICategoryRepository
+public class CategoryAccessor : ICategoryAccessor
 {
     private readonly AppDbContext _context;
 
-    public CategoryRepository(AppDbContext context)
+    public CategoryAccessor(AppDbContext context)
     {
         _context = context;
     }
