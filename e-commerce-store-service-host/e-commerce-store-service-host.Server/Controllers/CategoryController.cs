@@ -2,6 +2,7 @@ using e_commerce_store_service_host.Server.Model.Entities;
 using e_commerce_store_service_host.Server.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using e_commerce_store_service_host.Server.Accessors;
 using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace e_commerce_store_service_host.Server.Controllers;
@@ -9,25 +10,25 @@ namespace e_commerce_store_service_host.Server.Controllers;
 [Route("api/[controller]")]
 public class CategoryController : ControllerBase
 {
-    private readonly CategoryService _categoryService;
+    private readonly CategoryManager _categoryManager;
 
-    public CategoryController(CategoryService categoryService)
+    public CategoryController(CategoryManager categoryManager)
     {
-        _categoryService = categoryService;
+        _categoryManager = categoryManager;
     }
 
 
     [HttpGet]
     public async Task<IActionResult> GetCategories()
     {
-        var categories = await _categoryService.GetAllCategoriesAsync();
+        var categories = await _categoryManager.GetAllCategoriesAsync();
         return Ok(categories);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetCategory(Guid id)
     {
-        var category = await _categoryService.GetCategoryByIdAsync(id);
+        var category = await _categoryManager.GetCategoryByIdAsync(id);
         if (category == null)
         {
             return NotFound();
@@ -42,7 +43,7 @@ public class CategoryController : ControllerBase
         {
             return BadRequest(ModelState);
         }
-        await _categoryService.AddCategoryAsync(category);
+        await _categoryManager.AddCategoryAsync(category);
         
         return CreatedAtAction(nameof(GetCategory), new {id = category.CategoryId }, category);
     }
@@ -50,7 +51,7 @@ public class CategoryController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteCategory(Guid id)
     {
-        await _categoryService.DeleteCategoryAsync(id);
+        await _categoryManager.DeleteCategoryAsync(id);
         return NoContent();
     }
 }
