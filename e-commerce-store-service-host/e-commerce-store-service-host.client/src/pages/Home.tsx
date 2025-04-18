@@ -155,7 +155,11 @@ export default function Home() {
           <div className="text-white text-center">
             <h2 className="text-2xl font-bold">Discover the Future of Technology</h2>
             <p className="mt-2 text-lg">Explore our latest products and innovations.</p>
-            <Button className="mt-4 bg-primary text-white hover:bg-primary/90">Shop Now</Button>
+            <Link to="/products">
+              <Button className="bg-primary text-white hover:bg-primary/90">
+                Shop Now
+              </Button>
+            </Link>
           </div>
         </div>
       </motion.div>
@@ -166,8 +170,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
+        transition={{ duration: 0.6 }}      >
         <h2 className="text-2xl font-bold mb-6">Best Sellers</h2>
         <div className="relative flex items-center">
           <Button
@@ -178,41 +181,42 @@ export default function Home() {
             <ChevronLeft className="h-6 w-6" />
           </Button>
           <div
-          ref={srollRef}
-          className="flex overflow-x-auto scroll-smooth gap-6 py-4 px-2 scrollbar-hide"
-          style={{ scrollSnapType: "x mandatory" }}
-        >
+            ref={srollRef}
+            className="flex overflow-x-auto scroll-smooth gap-6 py-4 px-2 scrollbar-hide"
+            style={{ scrollSnapType: "x mandatory" }}
+          >
           {bestSellers.map((item, index) => (
-            item && (
-              <Card
-                key={index}
-                className="hover:shadow-lg transition-shadow w-[250px] h-[400px] snap-center bg-white flex flex-col"
-              >
-                <CardContent className="flex flex-col items-center gap-4 p-4 flex-grow">
-                  <div className="w-48 h-48 flex-shrink-0">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <div className="text-center flex flex-col justify-between flex-grow">
-                    <div>
-                      <h3 className="text-lg font-semibold">{item.name}</h3>
-                      <p className="text-sm text-gray-600">{item.category}</p>
-                    </div>
-                    <div>
-                      <p className="text-lg font-bold mt-2">{item.price}</p>
-                      <Button className="w-full bg-black text-white hover:bg-gray-800 mt-2">
-                        Shop Now
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            )
-          ))}
-        </div>
+              item && (
+                <Link to={`/product/${item.id}`} key={index}>
+                  <Card
+                    className="hover:shadow-lg transition-shadow w-[250px] h-[400px] snap-center bg-white flex flex-col"
+                  >
+                    <CardContent className="flex flex-col items-center gap-4 p-4 flex-grow">
+                      <div className="w-48 h-48 flex-shrink-0">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <div className="text-center flex flex-col justify-between flex-grow">
+                        <div>
+                          <h3 className="text-lg font-semibold">{item.name}</h3>
+                          <p className="text-sm text-gray-600">{item.category}</p>
+                        </div>
+                        <div>
+                          <p className="text-lg font-bold mt-2">{item.price}</p>
+                          <Button className="w-full bg-black text-white hover:bg-gray-800 mt-2">
+                            View Details
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              )
+            ))}
+          </div>
           <Button
             variant="outline"
             className="absolute right-0 z-10 bg-white rounded-full p-2 shadow-md"
