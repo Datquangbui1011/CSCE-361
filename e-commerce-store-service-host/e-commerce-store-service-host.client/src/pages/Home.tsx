@@ -10,6 +10,7 @@ import homepageImage5 from "@/assets/image/homepage5.jpg"
 import homepageImage7 from "@/assets/image/homepage7.jpg"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { sampleProducts } from "@/pages/product" // Import centralized product data
+import { ModeToggle } from "@/components/mode-toggle"
 
 const heroMedia = [
   { type: "image", src: homepageImage1 },
@@ -61,7 +62,10 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Navbar */}
       <header className="flex items-center justify-between px-6 py-4 shadow-md">
+        <div className="flex items-center gap-4">
         <Link to="/" className="text-xl font-bold">eCommerceStore</Link>
+        <ModeToggle></ModeToggle>
+        </div>
         <div className="flex items-center gap-4">
           <Link to="/login"><Button variant="outline">Sign In</Button></Link>
           <Link to="/register"><Button variant="outline">Sign Up</Button></Link>
