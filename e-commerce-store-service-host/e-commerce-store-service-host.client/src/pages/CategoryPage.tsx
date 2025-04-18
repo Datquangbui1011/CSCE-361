@@ -4,8 +4,6 @@ import { Link, useParams } from "react-router-dom"
 import { motion } from "framer-motion"
 import { sampleProducts } from "@/pages/product" // Import centralized product data
 
-
-
 export default function CategoryPage() {
   const { category } = useParams()
   const filteredProducts = sampleProducts.filter(
@@ -26,23 +24,25 @@ export default function CategoryPage() {
 
       {/* Category Products */}
       <motion.main
-        className="grid grid-cols-1 gap-6 px-6 py  sm:grid-cols-2 lg:grid-cols-3 py-12"
+        className="grid grid-cols-1 gap-6 px-6 py-12 sm:grid-cols-2 lg:grid-cols-3"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
-            <Card key={product.id} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle>{product.name}</CardTitle>
-                <CardDescription>{product.price}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-col items-center gap-4">
-                <img src={product.image} alt={product.name} className="w-32 h-32 object-contain" />
-                <Button className="w-full">Add to Cart</Button>
-              </CardContent>
-            </Card>
+            <Link to={`/product/${product.id}`} key={product.id}>
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <CardTitle>{product.name}</CardTitle>
+                  <CardDescription>{product.price}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center gap-4">
+                  <img src={product.image} alt={product.name} className="w-32 h-32 object-contain" />
+                  <Button className="w-full">Add to Cart</Button>
+                </CardContent>
+              </Card>
+            </Link>
           ))
         ) : (
           <p className="text-center col-span-full">No products found in this category.</p>
