@@ -28,7 +28,6 @@ public class CategoryManager
     public async Task AddCategoryAsync(Category category)
     {
         await _categoryRepository.AddAsync(category);
-        await _categoryRepository.SaveAsync();
     }
 
     public async Task DeleteCategoryAsync(Guid id)
@@ -37,7 +36,6 @@ public class CategoryManager
         if (category != null)
         {
             _categoryRepository.Delete(category);
-            await _categoryRepository.SaveAsync();
         }
     }
     

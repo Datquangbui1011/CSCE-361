@@ -11,11 +11,11 @@ public interface ICartAccessor
     Task<Cart> GetByIdAsync(Guid id);
     Task AddAsync(Cart cart);
     void Delete(Cart cart);
-    Task SaveAsync();
+
    
 }
 
-public class CartAccessor: ICartAccessor
+public class CartAccessor : ICartAccessor
 {
     private readonly AppDbContext _context;
 
@@ -37,15 +37,13 @@ public class CartAccessor: ICartAccessor
     public async Task AddAsync(Cart cart)
     {
         await _context.Carts.AddAsync(cart);
+        await _context.SaveChangesAsync();
     }
 
-    public void Delete(Cart cart)
+    public async void Delete(Cart cart)
     {
         _context.Carts.Remove(cart);
-    }
-
-    public async Task SaveAsync()
-    {
         await _context.SaveChangesAsync();
+
     }
 }

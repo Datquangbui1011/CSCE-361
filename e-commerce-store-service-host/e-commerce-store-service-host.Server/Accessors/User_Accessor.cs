@@ -13,7 +13,6 @@ public interface IUserAccessor
         Task<User> GetByIdAsync(Guid id);
         Task AddAsync(User user);
         void Delete(User user);
-        Task SaveAsync();
    
 }
 
@@ -39,16 +38,15 @@ public class User_Accessor : IUserAccessor
         public async Task AddAsync(User user)
         {
                 await _context.Users.AddAsync(user);
+                await _context.SaveChangesAsync();
+
         }
 
-        public void Delete(User user)
+        public async void Delete(User user)
         {
                 _context.Users.Remove(user);
-        }
-
-        public async Task SaveAsync()
-        {
                 await _context.SaveChangesAsync();
-        }
 
+        }
+        
 }

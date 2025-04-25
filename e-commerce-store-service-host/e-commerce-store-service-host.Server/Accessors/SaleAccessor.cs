@@ -10,7 +10,7 @@ public interface ISaleAccessor
     Task<Sale> GetByIdAsync(Guid id);
     Task AddAsync(Sale sale);
     void Delete(Sale sale);
-    Task SaveAsync();
+
    
 }
 
@@ -36,15 +36,15 @@ public class SaleAccessor : ISaleAccessor
     public async Task AddAsync(Sale sale)
     {
         await _context.Sales.AddAsync(sale);
+        await _context.SaveChangesAsync();
+
     }
 
-    public void Delete(Sale sale)
+    public async void Delete(Sale sale)
     {
         _context.Sales.Remove(sale);
+        await _context.SaveChangesAsync();
+
     }
 
-    public async Task SaveAsync()
-    {
-        await _context.SaveChangesAsync();
-    }
 }

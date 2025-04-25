@@ -11,7 +11,6 @@ public interface ICategoryAccessor
     Task<Category> GetByIdAsync(Guid id);
     Task AddAsync(Category category);
     void Delete(Category category);
-    Task SaveAsync();
 }
 
 public class CategoryAccessor : ICategoryAccessor
@@ -36,15 +35,14 @@ public class CategoryAccessor : ICategoryAccessor
     public async Task AddAsync(Category category)
     {
         await _context.Categories.AddAsync(category);
-    }
-
-    public void Delete(Category category)
-    {
-        _context.Categories.Remove(category);
-    }
-
-    public async Task SaveAsync()
-    {
         await _context.SaveChangesAsync();
     }
+
+    public async void Delete(Category category)
+    {
+        _context.Categories.Remove(category);
+        await _context.SaveChangesAsync();
+
+    }
 }
+

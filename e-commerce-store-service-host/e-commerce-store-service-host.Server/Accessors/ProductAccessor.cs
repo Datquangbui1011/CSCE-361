@@ -10,7 +10,7 @@ public interface IProductAccessor
     Task<Product> GetByIdAsync(Guid id);
     Task AddAsync(Product product);
     void Delete(Product product);
-    Task SaveAsync();
+
    
 }
 
@@ -36,15 +36,14 @@ public class ProductAccessor : IProductAccessor
     public async Task AddAsync(Product product)
     {
         await _context.Products.AddAsync(product);
-    }
-
-    public void Delete(Product product)
-    {
-        _context.Products.Remove(product);
-    }
-
-    public async Task SaveAsync()
-    {
         await _context.SaveChangesAsync();
     }
+
+    public async void Delete(Product product)
+    {
+        _context.Products.Remove(product);
+        await _context.SaveChangesAsync();
+
+    }
+    
 }
