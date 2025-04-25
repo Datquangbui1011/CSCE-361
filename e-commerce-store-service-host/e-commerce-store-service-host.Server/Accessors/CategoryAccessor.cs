@@ -1,6 +1,5 @@
 using e_commerce_store_service_host.Server.Model;
 using e_commerce_store_service_host.Server.Model.Entities;
-//using e_commerce_store_service_host.Server.Respository;
 using Microsoft.EntityFrameworkCore;
 
 namespace e_commerce_store_service_host.Server.Accessors;
