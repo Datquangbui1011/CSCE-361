@@ -1,16 +1,9 @@
-namespace e_commerce_store_service_host.ServerTests;
-
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Server.Model;
-using Server.Model.Entities;
-using Server.Accessors;
+using e_commerce_store_service_host.Server.Accessors;
+using e_commerce_store_service_host.Server.Model;
+using e_commerce_store_service_host.Server.Model.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+namespace e_commerce_store_service_host.ServerTests.Accessor;
 
 [TestClass]
 public class UserRepositoryTests
