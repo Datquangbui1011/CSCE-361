@@ -12,7 +12,7 @@ public interface ICartAccessor
     Task AddAsync(Cart cart);
     void Delete(Cart cart);
 
-   
+
 }
 
 public class CartAccessor : ICartAccessor

@@ -28,23 +28,23 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Arrange
             var user = new User
             {
-                UserId   = Guid.NewGuid(),
-                Name     = "Alice",
-                Email    = "alice@example.com",
+                UserId = Guid.NewGuid(),
+                Name = "Alice",
+                Email = "alice@example.com",
                 Password = "pw1",
-                Address  = "123 A St"
+                Address = "123 A St"
             };
             var c1 = new Cart
             {
-                CartId     = Guid.NewGuid(),
+                CartId = Guid.NewGuid(),
                 CreateDate = DateTime.UtcNow,
-                User       = user
+                User = user
             };
             var c2 = new Cart
             {
-                CartId     = Guid.NewGuid(),
+                CartId = Guid.NewGuid(),
                 CreateDate = DateTime.UtcNow.AddDays(1),
-                User       = user
+                User = user
             };
 
             await using (var context = new AppDbContext(_dbOptions))
@@ -73,17 +73,17 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Arrange
             var user = new User
             {
-                UserId   = Guid.NewGuid(),
-                Name     = "Bob",
-                Email    = "bob@example.com",
+                UserId = Guid.NewGuid(),
+                Name = "Bob",
+                Email = "bob@example.com",
                 Password = "pw2",
-                Address  = "456 B Ave"
+                Address = "456 B Ave"
             };
             var expected = new Cart
             {
-                CartId     = Guid.NewGuid(),
+                CartId = Guid.NewGuid(),
                 CreateDate = new DateTime(2025, 1, 1),
-                User       = user
+                User = user
             };
 
             await using (var context = new AppDbContext(_dbOptions))
@@ -96,7 +96,7 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Act & Assert
             await using (var context = new AppDbContext(_dbOptions))
             {
-                var repo   = new CartAccessor(context);
+                var repo = new CartAccessor(context);
                 var actual = await repo.GetByIdAsync(expected.CartId);
 
                 Assert.IsNotNull(actual, "Should find the cart by ID");
@@ -118,17 +118,17 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Arrange
             var user = new User
             {
-                UserId   = Guid.NewGuid(),
-                Name     = "Carol",
-                Email    = "carol@example.com",
+                UserId = Guid.NewGuid(),
+                Name = "Carol",
+                Email = "carol@example.com",
                 Password = "pw3",
-                Address  = "789 C Blvd"
+                Address = "789 C Blvd"
             };
             var toAdd = new Cart
             {
-                CartId     = Guid.NewGuid(),
+                CartId = Guid.NewGuid(),
                 CreateDate = DateTime.UtcNow,
-                User       = user
+                User = user
             };
 
             await using (var context = new AppDbContext(_dbOptions))

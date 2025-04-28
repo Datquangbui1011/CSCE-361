@@ -12,7 +12,7 @@ public interface ISaleAccessor
     Task AddAsync(Sale sale);
     void Delete(Sale sale);
     Task SaveAsync();
-   
+
 }
 
 public class SaleAccessor : ISaleAccessor

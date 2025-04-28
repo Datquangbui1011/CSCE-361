@@ -9,10 +9,10 @@ public class Cart
 {
     [Key]
     public Guid CartId { get; set; }
-    
+
     public DateTime CreateDate { get; set; }
-    
+
     [ForeignKey("UserId")]
-    public virtual User User{ get; set; }
-    
+    public virtual User User { get; set; }
+
 }

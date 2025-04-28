@@ -8,42 +8,42 @@ using e_commerce_store_service_host.Server.Model.Entities;
 
 public interface IUserAccessor
 {
-        // Basic CRUD-like actions
-        Task<IEnumerable<User>> GetAllAsync();
-        Task<User> GetByIdAsync(Guid id);
-        Task AddAsync(User user);
-        void Delete(User user);
-   
+    // Basic CRUD-like actions
+    Task<IEnumerable<User>> GetAllAsync();
+    Task<User> GetByIdAsync(Guid id);
+    Task AddAsync(User user);
+    void Delete(User user);
+
 }
 
 public class User_Accessor : IUserAccessor
-{ 
-        private readonly AppDbContext _context;
+{
+    private readonly AppDbContext _context;
 
-        public User_Accessor(AppDbContext context)
-        {
-                _context = context;
-        }
+    public User_Accessor(AppDbContext context)
+    {
+        _context = context;
+    }
 
-        public async Task<IEnumerable<User>> GetAllAsync()
-        {
-                return await _context.Users.ToListAsync();
-        }
+    public async Task<IEnumerable<User>> GetAllAsync()
+    {
+        return await _context.Users.ToListAsync();
+    }
 
-        public async Task<User> GetByIdAsync(Guid id)
-        {
-                return await _context.Users.FindAsync(id);
-        }
+    public async Task<User> GetByIdAsync(Guid id)
+    {
+        return await _context.Users.FindAsync(id);
+    }
 
-        public async Task AddAsync(User user)
-        {
-                await _context.Users.AddAsync(user);
-                await _context.SaveChangesAsync();
-        }
+    public async Task AddAsync(User user)
+    {
+        await _context.Users.AddAsync(user);
+        await _context.SaveChangesAsync();
+    }
 
-        public async void Delete(User user)
-        {
-                _context.Users.Remove(user);
-                await _context.SaveChangesAsync();
-        }
+    public async void Delete(User user)
+    {
+        _context.Users.Remove(user);
+        await _context.SaveChangesAsync();
+    }
 }

@@ -29,21 +29,21 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Arrange
             var s1 = new Sale
             {
-                SaleId       = Guid.NewGuid(),
-                Name         = "Spring Sale",
-                StartDate    = new DateTime(2025, 4, 1),
-                EndDate      = new DateTime(2025, 4, 15),
+                SaleId = Guid.NewGuid(),
+                Name = "Spring Sale",
+                StartDate = new DateTime(2025, 4, 1),
+                EndDate = new DateTime(2025, 4, 15),
                 DiscountType = "Percentage",
-                Discount     = 0.10m
+                Discount = 0.10m
             };
             var s2 = new Sale
             {
-                SaleId       = Guid.NewGuid(),
-                Name         = "Summer Sale",
-                StartDate    = new DateTime(2025, 6, 1),
-                EndDate      = new DateTime(2025, 6, 30),
+                SaleId = Guid.NewGuid(),
+                Name = "Summer Sale",
+                StartDate = new DateTime(2025, 6, 1),
+                EndDate = new DateTime(2025, 6, 30),
                 DiscountType = "Flat",
-                Discount     = 5.00m
+                Discount = 5.00m
             };
 
             await using (var context = new AppDbContext(_dbOptions))
@@ -56,7 +56,7 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             await using (var context = new AppDbContext(_dbOptions))
             {
                 var repo = new SaleAccessor(context);
-                var all  = (await repo.GetAllAsync()).ToList();
+                var all = (await repo.GetAllAsync()).ToList();
 
                 Assert.AreEqual(2, all.Count, "Should return exactly two sales");
                 CollectionAssert.AreEquivalent(
@@ -71,12 +71,12 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Arrange
             var expected = new Sale
             {
-                SaleId       = Guid.NewGuid(),
-                Name         = "Holiday Sale",
-                StartDate    = new DateTime(2025, 12, 1),
-                EndDate      = new DateTime(2025, 12, 31),
+                SaleId = Guid.NewGuid(),
+                Name = "Holiday Sale",
+                StartDate = new DateTime(2025, 12, 1),
+                EndDate = new DateTime(2025, 12, 31),
                 DiscountType = "Percentage",
-                Discount     = 0.25m
+                Discount = 0.25m
             };
 
             await using (var context = new AppDbContext(_dbOptions))
@@ -88,7 +88,7 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Act & Assert
             await using (var context = new AppDbContext(_dbOptions))
             {
-                var repo   = new SaleAccessor(context);
+                var repo = new SaleAccessor(context);
                 var actual = await repo.GetByIdAsync(expected.SaleId);
 
                 Assert.IsNotNull(actual, "Should find the sale by ID");
@@ -106,12 +106,12 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Arrange
             var toAdd = new Sale
             {
-                SaleId       = Guid.NewGuid(),
-                Name         = "Clearance",
-                StartDate    = new DateTime(2025, 7, 1),
-                EndDate      = new DateTime(2025, 7, 7),
+                SaleId = Guid.NewGuid(),
+                Name = "Clearance",
+                StartDate = new DateTime(2025, 7, 1),
+                EndDate = new DateTime(2025, 7, 7),
                 DiscountType = "Flat",
-                Discount     = 10.00m
+                Discount = 10.00m
             };
 
             await using (var context = new AppDbContext(_dbOptions))

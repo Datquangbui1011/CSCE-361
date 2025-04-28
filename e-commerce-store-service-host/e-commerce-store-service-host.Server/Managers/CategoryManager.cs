@@ -50,5 +50,5 @@ public class CategoryManager
 >>>>>>> c95f7a3 (Accessor Dummmy Test)
         }
     }
-    
+
 }

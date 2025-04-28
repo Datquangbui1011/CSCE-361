@@ -11,7 +11,7 @@ public interface IProductAccessor
     Task AddAsync(Product product);
     void Delete(Product product);
 
-   
+
 }
 
 public class ProductAccessor : IProductAccessor

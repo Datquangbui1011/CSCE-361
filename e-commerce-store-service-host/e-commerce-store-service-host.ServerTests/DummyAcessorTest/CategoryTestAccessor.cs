@@ -29,14 +29,14 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Arrange
             var c1 = new Category
             {
-                CategoryId  = Guid.NewGuid(),
-                Name        = "Electronics",
+                CategoryId = Guid.NewGuid(),
+                Name = "Electronics",
                 Description = "Devices and gadgets"
             };
             var c2 = new Category
             {
-                CategoryId  = Guid.NewGuid(),
-                Name        = "Books",
+                CategoryId = Guid.NewGuid(),
+                Name = "Books",
                 Description = "Printed and digital books"
             };
 
@@ -50,7 +50,7 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             await using (var context = new AppDbContext(_dbOptions))
             {
                 var repo = new CategoryAccessor(context);
-                var all  = (await repo.GetAllAsync()).ToList();
+                var all = (await repo.GetAllAsync()).ToList();
 
                 Assert.AreEqual(2, all.Count, "Should return exactly two categories");
                 CollectionAssert.AreEquivalent(
@@ -65,8 +65,8 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Arrange
             var expected = new Category
             {
-                CategoryId  = Guid.NewGuid(),
-                Name        = "Gadgets",
+                CategoryId = Guid.NewGuid(),
+                Name = "Gadgets",
                 Description = "Small electronic gadgets"
             };
 
@@ -79,7 +79,7 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Act & Assert
             await using (var context = new AppDbContext(_dbOptions))
             {
-                var repo   = new CategoryAccessor(context);
+                var repo = new CategoryAccessor(context);
                 var actual = await repo.GetByIdAsync(expected.CategoryId);
 
                 Assert.IsNotNull(actual, "Should find the category by ID");
@@ -94,8 +94,8 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Arrange
             var toAdd = new Category
             {
-                CategoryId  = Guid.NewGuid(),
-                Name        = "Clothing",
+                CategoryId = Guid.NewGuid(),
+                Name = "Clothing",
                 Description = "Apparel and accessories"
             };
 

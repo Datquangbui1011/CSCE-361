@@ -44,8 +44,8 @@ public class CategoryController : ControllerBase
             return BadRequest(ModelState);
         }
         await _categoryManager.AddCategoryAsync(category);
-        
-        return CreatedAtAction(nameof(GetCategory), new {id = category.CategoryId }, category);
+
+        return CreatedAtAction(nameof(GetCategory), new { id = category.CategoryId }, category);
     }
 
     [HttpDelete("{id}")]

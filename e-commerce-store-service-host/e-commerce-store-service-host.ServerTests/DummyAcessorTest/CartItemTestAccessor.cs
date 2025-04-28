@@ -29,57 +29,57 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Arrange
             var category = new Category
             {
-                CategoryId  = Guid.NewGuid(),
-                Name        = "Electronics",
+                CategoryId = Guid.NewGuid(),
+                Name = "Electronics",
                 Description = "Devices and gadgets"
             };
             var product1 = new Product
             {
-                ProductId   = Guid.NewGuid(),
-                Name        = "Widget A",
+                ProductId = Guid.NewGuid(),
+                Name = "Widget A",
                 Description = "First widget",
-                Price       = 9.99m,
-                SKU         = "WIDGET-A",
-                Rating      = 4.2f,
-                Category    = category
+                Price = 9.99m,
+                SKU = "WIDGET-A",
+                Rating = 4.2f,
+                Category = category
             };
             var product2 = new Product
             {
-                ProductId   = Guid.NewGuid(),
-                Name        = "Widget B",
+                ProductId = Guid.NewGuid(),
+                Name = "Widget B",
                 Description = "Second widget",
-                Price       = 19.99m,
-                SKU         = "WIDGET-B",
-                Rating      = 3.8f,
-                Category    = category
+                Price = 19.99m,
+                SKU = "WIDGET-B",
+                Rating = 3.8f,
+                Category = category
             };
             var user = new User
             {
-                UserId   = Guid.NewGuid(),
-                Name     = "Alice",
-                Email    = "alice@example.com",
+                UserId = Guid.NewGuid(),
+                Name = "Alice",
+                Email = "alice@example.com",
                 Password = "pw1",
-                Address  = "123 A St"
+                Address = "123 A St"
             };
             var cart = new Cart
             {
-                CartId     = Guid.NewGuid(),
+                CartId = Guid.NewGuid(),
                 CreateDate = DateTime.UtcNow,
-                User       = user
+                User = user
             };
             var ci1 = new CartItem
             {
                 CartItemId = Guid.NewGuid(),
-                Quantity   = 1,
-                Cart       = cart,
-                Product    = product1
+                Quantity = 1,
+                Cart = cart,
+                Product = product1
             };
             var ci2 = new CartItem
             {
                 CartItemId = Guid.NewGuid(),
-                Quantity   = 2,
-                Cart       = cart,
-                Product    = product2
+                Quantity = 2,
+                Cart = cart,
+                Product = product2
             };
 
             await using (var context = new AppDbContext(_dbOptions))
@@ -96,7 +96,7 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             await using (var context = new AppDbContext(_dbOptions))
             {
                 var repo = new CartItemAccessor(context);
-                var all  = (await repo.GetAllAsync()).ToList();
+                var all = (await repo.GetAllAsync()).ToList();
 
                 Assert.AreEqual(2, all.Count, "Should return exactly two cart items");
                 CollectionAssert.AreEquivalent(
@@ -111,40 +111,40 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Arrange
             var category = new Category
             {
-                CategoryId  = Guid.NewGuid(),
-                Name        = "Books",
+                CategoryId = Guid.NewGuid(),
+                Name = "Books",
                 Description = "Printed and digital books"
             };
             var product = new Product
             {
-                ProductId   = Guid.NewGuid(),
-                Name        = "C# in Depth",
+                ProductId = Guid.NewGuid(),
+                Name = "C# in Depth",
                 Description = "Programming book",
-                Price       = 39.95m,
-                SKU         = "BOOK-CSHARP",
-                Rating      = 4.9f,
-                Category    = category
+                Price = 39.95m,
+                SKU = "BOOK-CSHARP",
+                Rating = 4.9f,
+                Category = category
             };
             var user = new User
             {
-                UserId   = Guid.NewGuid(),
-                Name     = "Bob",
-                Email    = "bob@example.com",
+                UserId = Guid.NewGuid(),
+                Name = "Bob",
+                Email = "bob@example.com",
                 Password = "pw2",
-                Address  = "456 B Ave"
+                Address = "456 B Ave"
             };
             var cart = new Cart
             {
-                CartId     = Guid.NewGuid(),
+                CartId = Guid.NewGuid(),
                 CreateDate = new DateTime(2025, 1, 1),
-                User       = user
+                User = user
             };
             var expected = new CartItem
             {
                 CartItemId = Guid.NewGuid(),
-                Quantity   = 3,
-                Cart       = cart,
-                Product    = product
+                Quantity = 3,
+                Cart = cart,
+                Product = product
             };
 
             await using (var context = new AppDbContext(_dbOptions))
@@ -160,7 +160,7 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Act & Assert
             await using (var context = new AppDbContext(_dbOptions))
             {
-                var repo   = new CartItemAccessor(context);
+                var repo = new CartItemAccessor(context);
                 var actual = await repo.GetByIdAsync(expected.CartItemId);
 
                 Assert.IsNotNull(actual, "Should find the cart item by ID");
@@ -184,40 +184,40 @@ namespace e_commerce_store_service_host.ServerTests.Accessor
             // Arrange
             var category = new Category
             {
-                CategoryId  = Guid.NewGuid(),
-                Name        = "Gadgets",
+                CategoryId = Guid.NewGuid(),
+                Name = "Gadgets",
                 Description = "Small electronic gadgets"
             };
             var product = new Product
             {
-                ProductId   = Guid.NewGuid(),
-                Name        = "Gizmo X",
+                ProductId = Guid.NewGuid(),
+                Name = "Gizmo X",
                 Description = "Latest gadget",
-                Price       = 49.99m,
-                SKU         = "GIZMO-X",
-                Rating      = 4.5f,
-                Category    = category
+                Price = 49.99m,
+                SKU = "GIZMO-X",
+                Rating = 4.5f,
+                Category = category
             };
             var user = new User
             {
-                UserId   = Guid.NewGuid(),
-                Name     = "Carol",
-                Email    = "carol@example.com",
+                UserId = Guid.NewGuid(),
+                Name = "Carol",
+                Email = "carol@example.com",
                 Password = "pw3",
-                Address  = "789 C Blvd"
+                Address = "789 C Blvd"
             };
             var cart = new Cart
             {
-                CartId     = Guid.NewGuid(),
+                CartId = Guid.NewGuid(),
                 CreateDate = DateTime.UtcNow,
-                User       = user
+                User = user
             };
             var toAdd = new CartItem
             {
                 CartItemId = Guid.NewGuid(),
-                Quantity   = 5,
-                Cart       = cart,
-                Product    = product
+                Quantity = 5,
+                Cart = cart,
+                Product = product
             };
 
             await using (var context = new AppDbContext(_dbOptions))
