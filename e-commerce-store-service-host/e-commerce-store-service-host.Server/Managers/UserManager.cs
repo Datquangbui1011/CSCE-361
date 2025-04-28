@@ -17,7 +17,7 @@ public class UserManager
         _userRepository = userRepository;
     }
 
-    public async Task<IEnumerable<User>> GetAllCategoriesAsync()
+    public async Task<IEnumerable<User>> GetAllUsersAsync()
     {
         return await _userRepository.GetAllAsync();
     }
