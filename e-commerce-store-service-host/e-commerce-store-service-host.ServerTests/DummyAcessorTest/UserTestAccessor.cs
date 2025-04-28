@@ -33,7 +33,7 @@ public class UserRepositoryTests
 
         await using (var context = new AppDbContext(_dbOptions))
         {
-            var repo = new User_Accessor(context);
+            var repo = new UserAccessor(context);
 
             // Act
             var all = (await repo.GetAllAsync()).ToList();
@@ -59,7 +59,7 @@ public class UserRepositoryTests
 
         await using (var context = new AppDbContext(_dbOptions))
         {
-            var repo = new User_Accessor(context);
+            var repo = new UserAccessor(context);
 
             // Act
             var actual = await repo.GetByIdAsync(expected.UserId);
@@ -79,7 +79,7 @@ public class UserRepositoryTests
 
         await using (var context = new AppDbContext(_dbOptions))
         {
-            var repo = new User_Accessor(context);
+            var repo = new UserAccessor(context);
 
             // Act
             await repo.AddAsync(toAdd);

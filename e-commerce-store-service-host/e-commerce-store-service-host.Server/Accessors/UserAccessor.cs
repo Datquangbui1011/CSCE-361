@@ -16,11 +16,11 @@ public interface IUserAccessor
 
 }
 
-public class User_Accessor : IUserAccessor
+public class UserAccessor : IUserAccessor
 {
     private readonly AppDbContext _context;
 
-    public User_Accessor(AppDbContext context)
+    public UserAccessor(AppDbContext context)
     {
         _context = context;
     }
