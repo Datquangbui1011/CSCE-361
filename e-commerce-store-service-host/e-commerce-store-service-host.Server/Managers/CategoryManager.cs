@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using e_commerce_store_service_host.Server.Accessors;
 using e_commerce_store_service_host.Server.Model.Entities;
-//using e_commerce_store_service_host.Server.Respository;
 using Microsoft.EntityFrameworkCore;
 
 
