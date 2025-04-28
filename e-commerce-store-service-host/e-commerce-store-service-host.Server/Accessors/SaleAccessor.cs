@@ -11,8 +11,6 @@ public interface ISaleAccessor
     Task<Sale> GetByIdAsync(Guid id);
     Task AddAsync(Sale sale);
     void Delete(Sale sale);
-    Task SaveAsync();
-
 }
 
 public class SaleAccessor : ISaleAccessor

@@ -44,12 +44,5 @@ public class CartAccessor : ICartAccessor
     {
         _context.Carts.Remove(cart);
         await _context.SaveChangesAsync();
-<<<<<<< HEAD
-
     }
-=======
-    }
-
-
->>>>>>> c95f7a3 (Accessor Dummmy Test)
 }

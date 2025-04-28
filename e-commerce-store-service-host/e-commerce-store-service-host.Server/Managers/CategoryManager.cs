@@ -32,10 +32,6 @@ public class CategoryManager
     public async Task AddCategoryAsync(Category category)
     {
         await _categoryRepository.AddAsync(category);
-<<<<<<< HEAD
-=======
-        
->>>>>>> c95f7a3 (Accessor Dummmy Test)
     }
 
     public async Task DeleteCategoryAsync(Guid id)
@@ -44,10 +40,6 @@ public class CategoryManager
         if (category != null)
         {
             _categoryRepository.Delete(category);
-<<<<<<< HEAD
-=======
-           
->>>>>>> c95f7a3 (Accessor Dummmy Test)
         }
     }
 

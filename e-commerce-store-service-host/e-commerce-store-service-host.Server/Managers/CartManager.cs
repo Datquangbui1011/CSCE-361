@@ -14,7 +14,7 @@ public class CartManager
         _cartRepository = cartRepository;
     }
 
-    public async Task<IEnumerable<Cart>> GetAllCategoriesAsync()
+    public async Task<IEnumerable<Cart>> GetAllCartsAsync()
     {
         return await _cartRepository.GetAllAsync();
     }
@@ -28,7 +28,6 @@ public class CartManager
     public async Task AddCartAsync(Cart cart)
     {
         await _cartRepository.AddAsync(cart);
-        await _cartRepository.SaveAsync();
     }
 
     public async Task DeleteCartAsync(Guid id)
@@ -37,7 +36,6 @@ public class CartManager
         if (cart != null)
         {
             _cartRepository.Delete(cart);
-            await _cartRepository.SaveAsync();
         }
     }
 
