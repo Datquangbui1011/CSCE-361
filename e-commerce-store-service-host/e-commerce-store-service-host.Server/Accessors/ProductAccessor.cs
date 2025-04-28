@@ -43,7 +43,5 @@ public class ProductAccessor : IProductAccessor
     {
         _context.Products.Remove(product);
         await _context.SaveChangesAsync();
-
     }
-    
 }

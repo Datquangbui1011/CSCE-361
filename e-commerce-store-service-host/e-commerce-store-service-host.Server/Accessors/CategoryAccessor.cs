@@ -42,7 +42,5 @@ public class CategoryAccessor : ICategoryAccessor
     {
         _context.Categories.Remove(category);
         await _context.SaveChangesAsync();
-
     }
 }
-

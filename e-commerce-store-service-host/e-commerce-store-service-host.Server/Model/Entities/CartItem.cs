@@ -10,7 +10,7 @@ public class CartItem
     [Key]
     public Guid CartItemId { get; set; }
     
-    int Quantity { get; set; }
+    public int Quantity { get; set; }
     
     [ForeignKey("CartId")]
     public virtual Cart Cart{ get; set; }

@@ -2,6 +2,10 @@ using e_commerce_store_service_host.Server.Model.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using e_commerce_store_service_host.Server.Accessors;
+using e_commerce_store_service_host.Server.Model.Entities;
+//using e_commerce_store_service_host.Server.Respository;
+using Microsoft.EntityFrameworkCore;
+
 
 
 namespace e_commerce_store_service_host.Server.Services;
@@ -28,6 +32,10 @@ public class CategoryManager
     public async Task AddCategoryAsync(Category category)
     {
         await _categoryRepository.AddAsync(category);
+<<<<<<< HEAD
+=======
+        
+>>>>>>> c95f7a3 (Accessor Dummmy Test)
     }
 
     public async Task DeleteCategoryAsync(Guid id)
@@ -36,6 +44,10 @@ public class CategoryManager
         if (category != null)
         {
             _categoryRepository.Delete(category);
+<<<<<<< HEAD
+=======
+           
+>>>>>>> c95f7a3 (Accessor Dummmy Test)
         }
     }
     

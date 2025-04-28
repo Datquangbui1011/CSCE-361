@@ -8,15 +8,15 @@ public class Product
     [Key]
     public Guid ProductId { get; set; }
     
-    string Name { get; set; }
+    public string Name { get; set; }
     
-    string? Description { get; set; }
+    public string? Description { get; set; }
     
-    decimal? Price { get; set; }
+    public decimal? Price { get; set; }
     
-    string? SKU { get; set; }
+    public string? SKU { get; set; }
     
-    float? Rating { get; set; }
+    public float? Rating { get; set; }
     
     [ForeignKey("CategoryId")]
     public virtual Category Category { get; set; }

@@ -39,14 +39,11 @@ public class User_Accessor : IUserAccessor
         {
                 await _context.Users.AddAsync(user);
                 await _context.SaveChangesAsync();
-
         }
 
         public async void Delete(User user)
         {
                 _context.Users.Remove(user);
                 await _context.SaveChangesAsync();
-
         }
-        
 }

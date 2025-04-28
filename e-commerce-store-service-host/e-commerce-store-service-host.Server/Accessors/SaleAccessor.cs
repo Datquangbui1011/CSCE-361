@@ -1,5 +1,6 @@
 using e_commerce_store_service_host.Server.Model;
 using e_commerce_store_service_host.Server.Model.Entities;
+//using e_commerce_store_service_host.Server.Respository;
 using Microsoft.EntityFrameworkCore;
 namespace e_commerce_store_service_host.Server.Accessors;
 
@@ -10,7 +11,7 @@ public interface ISaleAccessor
     Task<Sale> GetByIdAsync(Guid id);
     Task AddAsync(Sale sale);
     void Delete(Sale sale);
-
+    Task SaveAsync();
    
 }
 
@@ -37,14 +38,11 @@ public class SaleAccessor : ISaleAccessor
     {
         await _context.Sales.AddAsync(sale);
         await _context.SaveChangesAsync();
-
     }
 
     public async void Delete(Sale sale)
     {
         _context.Sales.Remove(sale);
         await _context.SaveChangesAsync();
-
     }
-
 }
