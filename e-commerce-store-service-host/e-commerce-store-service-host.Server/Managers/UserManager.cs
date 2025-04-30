@@ -10,9 +10,9 @@ using Microsoft.EntityFrameworkCore;
 namespace e_commerce_store_service_host.Server.Services;
 public class UserManager
 {
-    private readonly UserAccessor _userRepository;
+    private readonly IUserAccessor _userRepository;
 
-    public UserManager(UserAccessor userRepository)
+    public UserManager(IUserAccessor userRepository)
     {
         _userRepository = userRepository;
     }

@@ -13,6 +13,8 @@ public interface IUserAccessor
     Task<User> GetByIdAsync(Guid id);
     Task AddAsync(User user);
     void Delete(User user);
+    
+    Task<User> GetbyEmailAsync(string email);
 
 }
 

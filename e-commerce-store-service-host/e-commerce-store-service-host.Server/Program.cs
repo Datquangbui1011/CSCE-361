@@ -1,7 +1,11 @@
 using e_commerce_store_service_host.Server.Model;
+using e_commerce_store_service_host.Server.Services;
+
 
 namespace e_commerce_store_service_host.Server
 {
+    using e_commerce_store_service_host.Server.Accessors;
+
     using Microsoft.EntityFrameworkCore;
 
     public class Program
@@ -14,8 +18,27 @@ namespace e_commerce_store_service_host.Server
             var connectionString = "Server=localhost,1433;Database=csce361;User Id=sa;Password=Placeh0lder!Passw0rd;TrustServerCertificate=True;";
             builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(
+                name: "_MyAllowSubdomainPolicy",
+                policy =>
+                {  
+                    policy.WithOrigins("http://localhost:5173")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                }
+                );
+            });
+
+
+
             // Add services to the container.
             builder.Services.AddControllers();
+
+            builder.Services.AddScoped<UserManager>();
+            builder.Services.AddScoped<IUserAccessor, UserAccessor>();
+
 
             var app = builder.Build();
 
@@ -24,10 +47,12 @@ namespace e_commerce_store_service_host.Server
 
             // Configure the HTTP request pipeline.
 
+            app.UseCors("_MyAllowSubdomainPolicy");
+
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
