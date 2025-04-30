@@ -1,8 +1,10 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using e_commerce_store_service_host.Server.Model.Entities;
 using e_commerce_store_service_host.Server.Services;
 using e_commerce_store_service_host.Server.Accessors;
+using e_commerce_store_service_host.Server.Model.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http.HttpResults;
 
@@ -30,6 +32,8 @@ namespace e_commerce_store_service_host.Server.Controllers
             return Ok(user);
         }
 
+
+
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] User user)
         {
@@ -46,5 +50,24 @@ namespace e_commerce_store_service_host.Server.Controllers
             await _userManager.DeleteUserAsync(id);
             return NoContent();
         }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginDto login)
+        {
+            var user = await _userManager.GetUserByEmailAsync(login.Email);
+            if (user == null || user.Password != login.Password)
+            {
+                return Unauthorized("Invalid email or password");
+            }
+
+            return Ok(new
+            {
+                userId = user.UserId,
+                name = user.Name,
+                email = user.Email,
+                address = user.Address
+            });
+        }
     }
+    
 }

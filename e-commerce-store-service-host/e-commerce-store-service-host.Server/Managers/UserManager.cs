@@ -28,6 +28,8 @@ public class UserManager
         return user;
     }
 
+  
+
     public async Task AddUserAsync(User user)
     {
         await _userRepository.AddAsync(user);
@@ -40,6 +42,12 @@ public class UserManager
         {
             _userRepository.Delete(user);
         }
+    }
+
+    public async Task<User> GetUserByEmailAsync(string email)
+    {
+        var user = await _userRepository.GetbyEmailAsync(email);
+        return user;
     }
 
 }

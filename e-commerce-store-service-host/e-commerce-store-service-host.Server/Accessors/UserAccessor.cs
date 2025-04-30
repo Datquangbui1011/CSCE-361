@@ -46,4 +46,9 @@ public class UserAccessor : IUserAccessor
         _context.Users.Remove(user);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<User> GetbyEmailAsync(string email)
+    {
+        return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+    }
 }
