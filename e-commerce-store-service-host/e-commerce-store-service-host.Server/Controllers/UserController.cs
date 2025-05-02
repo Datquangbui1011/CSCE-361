@@ -68,6 +68,42 @@ namespace e_commerce_store_service_host.Server.Controllers
                 address = user.Address
             });
         }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterDto register)
+        {
+            if (register.Password != register.ConfirmPassword)
+            {
+                return BadRequest("Passwords do not match.");
+            }
+
+            var existingUser = await _userManager.GetUserByEmailAsync(register.Email);
+            if (existingUser != null)
+            {
+                return Conflict("Email is already in use.");
+            }
+
+            var user = new User
+            {
+                Email = register.Email,
+                Name = register.Name,
+                Password = register.Password
+            };
+
+            var result = await _userManager.AddUserAsync(user);
+
+            if (!result)
+            {
+                return StatusCode(500, "An error occurred while registering the user.");
+            }
+
+            return Ok(new
+            {
+                name = user.Name,
+                email = user.Email
+            });
+        }
+
     }
-    
+
 }
