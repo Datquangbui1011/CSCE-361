@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using e_commerce_store_service_host.Server.Model.DTO;
 using Microsoft.AspNetCore.Mvc;
 using e_commerce_store_service_host.Server.Model.Entities;
 using e_commerce_store_service_host.Server.Services;
@@ -42,6 +43,24 @@ namespace e_commerce_store_service_host.Server.Controllers
         {
             await _cartItemManager.DeleteCartItemAsync(id);
             return NoContent();
+        }
+
+       [HttpPost("add")]
+        public async Task<IActionResult> AddCartItem([FromBody] AddtoCartDTO CIdto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var cartItem = new CartItem
+            {
+                CartItemId = Guid.NewGuid(),
+                ProductId = CIdto.ProductId,
+                Quantity = CIdto.Quantity,
+                //CartId = CIdto.CartId, 
+
+
+            };
+            await _cartItemManager.AddCartItemAsync(cartItem);
+            return CreatedAtAction(nameof(GetCartItem), new { id = cartItem.Cart }, cartItem);
         }
     }
 }
