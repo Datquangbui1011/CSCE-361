@@ -10,9 +10,9 @@ using Microsoft.EntityFrameworkCore;
 namespace e_commerce_store_service_host.Server.Services;
 public class CartItemManager
 {
-    private readonly CartItemAccessor _cartItemRepository;
+    private readonly ICartItemAccessor _cartItemRepository;
 
-    public CartItemManager(CartItemAccessor cartItemRepository)
+    public CartItemManager(ICartItemAccessor cartItemRepository)
     {
         _cartItemRepository = cartItemRepository;
     }

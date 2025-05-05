@@ -7,9 +7,9 @@ using e_commerce_store_service_host.Server.Accessors;
 namespace e_commerce_store_service_host.Server.Services;
 public class CartManager
 {
-    private readonly CartAccessor _cartRepository;
+    private readonly ICartAccessor _cartRepository;
 
-    public CartManager(CartAccessor cartRepository)
+    public CartManager(ICartAccessor cartRepository)
     {
         _cartRepository = cartRepository;
     }

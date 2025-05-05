@@ -41,6 +41,8 @@ export default function ProductDetails() {
       quantity,
     })
   }
+  
+  
 
   return (
     <div className="min-h-screen bg-background text-foreground">

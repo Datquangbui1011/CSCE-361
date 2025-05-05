@@ -10,9 +10,9 @@ using Microsoft.EntityFrameworkCore;
 namespace e_commerce_store_service_host.Server.Services;
 public class SaleManager
 {
-    private readonly SaleAccessor _saleRepository;
+    private readonly ISaleAccessor _saleRepository;
 
-    public SaleManager(SaleAccessor saleRepository)
+    public SaleManager(ISaleAccessor saleRepository)
     {
         _saleRepository = saleRepository;
     }

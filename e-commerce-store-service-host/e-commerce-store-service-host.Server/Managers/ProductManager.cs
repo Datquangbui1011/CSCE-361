@@ -10,9 +10,9 @@ using Microsoft.EntityFrameworkCore;
 namespace e_commerce_store_service_host.Server.Services;
 public class ProductManager
 {
-    private readonly ProductAccessor _productRepository;
+    private readonly IProductAccessor _productRepository;
 
-    public ProductManager(ProductAccessor productRepository)
+    public ProductManager(IProductAccessor productRepository)
     {
         _productRepository = productRepository;
     }

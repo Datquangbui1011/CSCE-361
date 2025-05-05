@@ -10,9 +10,9 @@ using Microsoft.EntityFrameworkCore;
 namespace e_commerce_store_service_host.Server.Services;
 public class CategoryManager
 {
-    private readonly CategoryAccessor _categoryRepository;
+    private readonly ICategoryAccessor _categoryRepository;
 
-    public CategoryManager(CategoryAccessor categoryRepository)
+    public CategoryManager(ICategoryAccessor categoryRepository)
     {
         _categoryRepository = categoryRepository;
     }

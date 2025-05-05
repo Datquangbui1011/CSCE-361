@@ -1,4 +1,5 @@
 using e_commerce_store_service_host.Server.Model;
+using e_commerce_store_service_host.Server.Model.Entities;
 using e_commerce_store_service_host.Server.Services;
 
 
@@ -38,12 +39,14 @@ namespace e_commerce_store_service_host.Server
 
             builder.Services.AddScoped<UserManager>();
             builder.Services.AddScoped<IUserAccessor, UserAccessor>();
-            
-            builder.Services.AddScoped<ICartItemAccessor, CartItemAccessor>();
-            builder.Services.AddScoped<CartItemManager>();
 
+            builder.Services.AddScoped<ICartItemAccessor, CartItemAccessor>();
+            builder.Services.AddScoped<CartItemAccessor>();
+            
             builder.Services.AddScoped<ICartAccessor, CartAccessor>();
             builder.Services.AddScoped<CartManager>();
+            
+            
 
 
             var app = builder.Build();
