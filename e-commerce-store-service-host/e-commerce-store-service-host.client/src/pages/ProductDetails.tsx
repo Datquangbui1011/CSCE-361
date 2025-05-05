@@ -5,6 +5,7 @@ import { Star } from "lucide-react"
 import { useState } from "react"
 import { useCart } from "@/pages/CartContext"
 import Navbar from "../components/ui/Navbar" // Adjusted the path to the Navbar component
+// import {addToCart} from "@/utils/AddtoCart"
 
 export default function ProductDetails() {
   const { addToCart } = useCart()
@@ -42,6 +43,23 @@ export default function ProductDetails() {
     })
   }
   
+  // const handleAddToCart = async() => {
+  //   try{
+  //     const userId = "replace-with-real-user-id"
+  //     const cartId = "replace-with-real-cart-id"
+  //    
+  //     await addToCart({
+  //       ProductId: productId,
+  //       cartId,
+  //       quantity,
+  //     })
+  //    
+  //     alert(`Added ${quantity} of ${product.name} to your cart!`)
+  //   } catch (err){
+  //     console.error(err)
+  //     alert("Failed to add item to cart")
+  //   }
+  // }
   
 
   return (
