@@ -30,10 +30,19 @@ public class UserManager
 
   
 
-    public async Task AddUserAsync(User user)
+    public async Task<bool> AddUserAsync(User user)
     {
-        await _userRepository.AddAsync(user);
-    }
+        try
+        {
+            await _userRepository.AddAsync(user);
+            return true;
+        }
+        catch (Exception)
+        {
+            // Optional: log the exception
+            return false;
+        }
+    } 
 
     public async Task DeleteUserAsync(Guid id)
     {
