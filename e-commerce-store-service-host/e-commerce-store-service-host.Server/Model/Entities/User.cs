@@ -5,7 +5,7 @@ namespace e_commerce_store_service_host.Server.Model.Entities;
 public class User
 {
     [Key]
-    public Guid UserId { get; set; }
+    public Guid UserId { get; set; } = Guid.NewGuid();
 
     public string Name { get; set; }
 
