@@ -7,9 +7,12 @@ import { useMutation } from "@tanstack/react-query"
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
+import { useAuth } from "@/context/AuthenContext";
+
 
 
 export default function Login() {
+    const { setIsLoggedIn } = useAuth();
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
         email: "",
@@ -21,7 +24,8 @@ export default function Login() {
       return await axios.post("http://localhost:5004/api/user/login", user)
     },
     onSuccess: () => {
-      navigate("/")
+        setIsLoggedIn(true);
+        navigate("/");
     },
     onError: (error) => {
       console.error("Login error:", error)
