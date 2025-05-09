@@ -1,12 +1,10 @@
 using System;
-using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using e_commerce_store_service_host.Server.Model.Entities;
 using e_commerce_store_service_host.Server.Services;
-using e_commerce_store_service_host.Server.Accessors;
 using e_commerce_store_service_host.Server.Model.DTO;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Identity;
 
 namespace e_commerce_store_service_host.Server.Controllers
 {
@@ -15,13 +13,12 @@ namespace e_commerce_store_service_host.Server.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserManager _userManager;
+        private readonly PasswordHasher<User> _passwordHasher = new();
 
         public UserController(UserManager userManager)
         {
             _userManager = userManager;
         }
-
-        [HttpGet]
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUser(Guid id)
@@ -31,8 +28,6 @@ namespace e_commerce_store_service_host.Server.Controllers
                 return NotFound();
             return Ok(user);
         }
-
-
 
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] User user)
@@ -54,11 +49,15 @@ namespace e_commerce_store_service_host.Server.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto login)
         {
-            var user = await _userManager.GetUserByEmailAsync(login.Email);
-            if (user == null || user.Password != login.Password)
-            {
+            var normalizedEmail = login.Email.ToLower();
+            var user = await _userManager.GetUserByEmailAsync(normalizedEmail);
+
+            if (user == null)
                 return Unauthorized("Invalid email or password");
-            }
+
+            var result = _passwordHasher.VerifyHashedPassword(user, user.Password, login.Password);
+            if (result != PasswordVerificationResult.Success)
+                return Unauthorized("Invalid email or password");
 
             return Ok(new
             {
@@ -77,7 +76,8 @@ namespace e_commerce_store_service_host.Server.Controllers
                 return BadRequest("Passwords do not match.");
             }
 
-            var existingUser = await _userManager.GetUserByEmailAsync(register.Email);
+            var normalizedEmail = register.Email.ToLower();
+            var existingUser = await _userManager.GetUserByEmailAsync(normalizedEmail);
             if (existingUser != null)
             {
                 return Conflict("Email is already in use.");
@@ -85,9 +85,9 @@ namespace e_commerce_store_service_host.Server.Controllers
 
             var user = new User
             {
-                Email = register.Email,
+                Email = normalizedEmail,
                 Name = register.Name,
-                Password = register.Password
+                Password = _passwordHasher.HashPassword(null, register.Password)
             };
 
             var result = await _userManager.AddUserAsync(user);
@@ -103,7 +103,5 @@ namespace e_commerce_store_service_host.Server.Controllers
                 email = user.Email
             });
         }
-
     }
-
 }

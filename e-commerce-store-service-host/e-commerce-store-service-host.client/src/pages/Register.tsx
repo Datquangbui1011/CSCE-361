@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button"
 import {
   Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle
@@ -20,21 +19,20 @@ export default function Register() {
   })
 
   const mutation = useMutation({
-    mutationFn: async (newUser: { name: string; email: string; password: string }) => {
-        const mock =  {
-            userId: "e145b642-d9af-4928-ad45-a8f0f8f7022c",
-            address: "thing",
-            ...newUser
-        }
-        console.log(mock);
-      return await axios.post("http://localhost:5004/api/user", mock) 
+    mutationFn: async (newUser: {
+      name: string
+      email: string
+      password: string
+      confirmPassword: string
+    }) => {
+      return await axios.post("http://localhost:5004/api/user/register", newUser)
     },
     onSuccess: () => {
       navigate("/login")
     },
     onError: (error) => {
       console.error("Registration error:", error)
-    }
+    },
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,6 +49,7 @@ export default function Register() {
       name: formData.name,
       email: formData.email,
       password: formData.password,
+      confirmPassword: formData.confirmPassword,
     })
   }
 
@@ -76,7 +75,7 @@ export default function Register() {
               <Input id="password" type="password" value={formData.password} onChange={handleChange} required />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirm-password">Confirm Password</Label>
+              <Label htmlFor="confirmPassword">Confirm Password</Label>
               <Input id="confirmPassword" type="password" value={formData.confirmPassword} onChange={handleChange} required />
             </div>
             {mutation.isError && (
@@ -101,4 +100,3 @@ export default function Register() {
     </div>
   )
 }
-
