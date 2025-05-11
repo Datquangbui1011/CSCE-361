@@ -37,7 +37,7 @@ export default function Cart() {
                                 <div>
                                     <CardTitle className="text-lg">{item.name}</CardTitle>
                                     <CardDescription>
-                                        ${item.price.toFixed(2)} x{" "}
+                                        ${item.price.toFixed(2)} x{' '}
                                         <input
                                             type="number"
                                             value={item.quantity}
@@ -70,7 +70,7 @@ export default function Cart() {
                             <Link to="/">
                                 <Button variant="outline">Continue Shopping</Button>
                             </Link>
-                            <Link to="/Checkout">
+                            <Link to="/checkout">
                                 <Button>Checkout</Button>
                             </Link>
                         </CardFooter>

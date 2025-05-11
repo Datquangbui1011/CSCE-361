@@ -55,7 +55,7 @@ namespace e_commerce_store_service_host.Server.Controllers
                 CartItemId = Guid.NewGuid(),
                 ProductId = CIdto.ProductId,
                 Quantity = CIdto.Quantity,
-                //CartId = CIdto.CartId, 
+                CartId = CIdto.CartId, 
 
 
             };
