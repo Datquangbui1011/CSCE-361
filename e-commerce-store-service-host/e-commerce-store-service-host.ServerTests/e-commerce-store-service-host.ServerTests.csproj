@@ -26,8 +26,4 @@
     <ProjectReference Include="..\e-commerce-store-service-host.Server\e-commerce-store-service-host.Server.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="MoreTesting\" />
-  </ItemGroup>
-
 </Project>
